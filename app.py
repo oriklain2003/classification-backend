@@ -1,9 +1,14 @@
 import json
+import os
 from openai import OpenAI
 
-# Initialize the client (make sure OPENAI_API_KEY is set in your environment)
-client = OpenAI(api_key="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")
+# Load API key from environment
+api_key = os.getenv("OPENAI_API_KEY")
+if not api_key:
+    raise ValueError("❌ OPENAI_API_KEY environment variable is not set")
 
+# Initialize the client safely
+client = OpenAI(api_key=api_key)
 # Load classification rules from file
 with open("rules.json", "r", encoding="utf-8") as f:
     rules = json.load(f)
