@@ -9,6 +9,7 @@ if not api_key:
 
 # Initialize the client safely
 client = OpenAI(api_key=api_key)
+
 # Load classification rules from file
 with open("rules.json", "r", encoding="utf-8") as f:
     rules = json.load(f)
