@@ -82,6 +82,7 @@ def predict(data:dict):
       "best_guess": "category/subtype",
       "reasoning": "string"
     }
+    in case there are 2 options based on the rules you can say that based on that data you cant deside what is the right answer and give high score to both.
     Probabilities must sum to 1.0
     """
 
