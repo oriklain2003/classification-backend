@@ -1,0 +1,261 @@
+{
+  "birds": {
+    "day_migration": {
+      "species": [
+        "חסידות",
+        "שקנאים",
+        "דורסים"
+      ],
+      "type": "עופות דואים (נדידה פסיבית)",
+      "areas": [
+        "ציר הבקע הירדני",
+        "ים המלח",
+        "עמק בית שאן",
+        "החולה",
+        "מצוק ההעתקים",
+        "מאגרי מים",
+        "שטחי מדגה",
+        "מעגן מיכאל",
+        "מצפור ויקר"
+      ],
+      "speed_knots": [
+        25,
+        80
+      ],
+      "altitude_ft": [
+        65,
+        10000
+      ],
+      "pattern": "זיגזג בעלייה בטרמיקה, גלישה איטית כלפי מטה",
+      "risk": "מפגש עם מסוקים וכטב\"מים בגבהים נמוכים"
+    },
+    "night_migration": {
+      "species": [
+        "ציפורי שיר",
+        "חופמאים",
+        "ברווזים"
+      ],
+      "type": "נדידה אקטיבית",
+      "areas": [
+        "קו חוף",
+        "נאות מדבר",
+        "אילת",
+        "ערבה"
+      ],
+      "speed_knots": [
+        20,
+        50
+      ],
+      "altitude_ft": [
+        50,
+        19700
+      ],
+      "pattern": "שיוט יציב, הנמכה עם שחר לצורך מנוחה ואכילה",
+      "risk": "מפגש עם תעופה מבצעית בגובה שיוט"
+    },
+    "additional_data":"Dramatic altitude changes (zigzag): Soaring birds constantly change altitude — moving upward in a zigzag pattern within a thermal column, then gliding downward toward the next thermal. This behavior makes it difficult to accurately predict their altitude.\n\n2. Zigzag as a flight path: Soaring birds do not fly in a perfectly straight, continuous line. The zigzag pattern appears not only in altitude but also in their horizontal flight path. On a wide (“zoomed out”) view of flight history or live tracking, the flight may appear almost perfectly straight — but when zoomed in, small zigzag movements from side to side can be seen during forward flight.\n\n3. Descent for “refueling”: In autumn and spring, many species (including small songbirds and raptors) take advantage of stopover sites such as Eilat, the Arava, and the Hula Valley. Aircraft flying at low altitudes are likely to encounter particularly high concentrations of birds in these areas. The birds “land at night and take off at dawn” in search of food."
+  },
+  "uav": {
+    "Shahed-136": {
+      "operator": [
+        "איראן",
+        "חות'ים",
+        "חיזבאללה"
+      ],
+      "speed_knots": 100,
+      "altitude_ft": [
+        100,
+        13000
+      ],
+      "profile": "Low & Slow",
+      "navigation": [
+        "GNSS",
+        "INS"
+      ],
+      "EW_sensitivity": "גבוהה מאוד"
+    },
+    "Ababil-3": {
+      "speed_knots": 105,
+      "altitude_ft": [
+        0,
+        16400
+      ],
+      "profile": "ISR/UCAV טקטי",
+      "EW_sensitivity": "גבוהה"
+    },
+    "Mohajer-6": {
+      "speed_knots": 108,
+      "altitude_ft": [
+        0,
+        18000
+      ],
+      "profile": "ISR/UCAV",
+      "EW_sensitivity": "גבוהה"
+    },
+    "Kaman-12": {
+      "speed_knots": 108,
+      "altitude_ft": [
+        0,
+        15000
+      ],
+      "profile": "ISR טקטי",
+      "EW_sensitivity": "גבוהה"
+    },
+    "Shahed-191": {
+      "speed_knots": 162,
+      "altitude_ft": [
+        0,
+        25000
+      ],
+      "profile": "UCAV High",
+      "EW_sensitivity": "בינונית"
+    },
+    "Ababil-2": {
+      "speed_knots": 200,
+      "altitude_ft": [
+        0,
+        9900
+      ],
+      "profile": "ISR / תחמושת משוטטת",
+      "EW_sensitivity": "גבוהה"
+    },
+    "Hoveyzeh": {
+      "speed_knots": "תת-קולי",
+      "altitude_ft": [
+        3,
+        50
+      ],
+      "profile": "Sea-skimming",
+      "EW_sensitivity": "בינונית"
+    },
+    "Quds": {
+      "speed_knots": "תת-קולי",
+      "altitude_ft": [
+        10,
+        200
+      ],
+      "profile": "Terrain Following",
+      "EW_sensitivity": "נמוכה"
+    },
+    "Mobin": {
+      "speed_knots": 486,
+      "altitude_ft": [
+        0,
+        33
+      ],
+      "profile": "Low & Fast",
+      "EW_sensitivity": "גבוהה"
+    },
+    "Karrar-1": {
+      "speed_knots": 486,
+      "altitude_ft": [
+        30000,
+        42000
+      ],
+      "profile": "High & Fast",
+      "EW_sensitivity": "בינונית"
+    },
+    "additional_data": "(extreme low) Not explicitly stated (likely INS/GNSS)\nMedium (varies depending on GNSS use)\nNot explicitly stated (medium–large UAV)\nHigh: up to ~42,362 ft / ~486 kt — High & Fast (UCAV / target)\nKarrar-1 (Iran)\n\nSummary table – UAVs and cruise missiles\n\nMaximum range\tMinimum range\tSummary parameter\n~486 kt (Mobin / Karrar-1)\t~100 kt (Shahed-136)\tFlight speed\n~42,362 ft (Karrar-1)\t~33 ft / sea-skimming (Mobin, Hoveyzeh, Quds)\tOperational flight altitude\nLow to medium (depends on size)\tLow (composite materials and low altitude)\tRadar signature (RCS)\nVery high (depends on civilian GNSS)\tLow (TERCOM, pure INS)\tSusceptibility to EW\n\nProfile: Low & Slow — the slow, cheap target\nThis is the profile of saturation weapons such as the Shahed-136 (~100 kt) or Samad-1 (~135 kt).\n• What it does: It flies a relatively straight, autonomous path (simple autopilot), at low to medium altitude — just a few thousand feet.\n• Its weakness: It is highly sensitive to electronic warfare (EW). Its “brain” relies on weak civilian GPS signals. If we apply effective jamming, the weapon loses precise navigation and fails its mission. For us, this is the first and most economical line of defense.\n\nProfile: Terrain-following — the low-avoidance threat\nThis is the profile of more sophisticated cruise missiles, which are faster and more robust, such as the Quds or Hoveyzeh.\n• What it does:\no Terrain-following (Quds): It does not fly in a straight line. The missile follows a planned, winding route with altitude changes and sharp maneuvers, using TERCOM (terrain-contour matching) to hide behind ridges and hills.\no Sea-skimming (Hoveyzeh): It flies just a few meters above the water.\n• Why it’s dangerous: Extreme low altitude uses the earth’s curvature. Ground radars will detect it only at very short range. A system like Mobin, which flies down to ~33 ft, gives us only a few seconds of reaction time.\n\nProfile: High & Fast — the high-altitude threat\nThis is the profile of larger UAVs, like the Karrar-1, which can reach ~42,000 ft.\n• What it does: It flies a relatively straight path at high altitude, usually at high speed (~486 kt). It can be used for intelligence, surveillance and reconnaissance (ISR) from high altitude or for strikes (UCAV).\n• Why it’s dangerous: It often serves as a long-range strategic platform. Its high altitude requires interception resources capable of reaching it, such as fighter aircraft.\n• Its weakness: At high altitude its radar detection is easier compared to ground-hugging threats, which gives us longer reaction time to employ long-range defense systems."
+  },
+  "aircraft": {
+    "Robinson R22": {
+      "category": "מסוק קל",
+      "speed_knots": [
+        85,
+        100
+      ],
+      "altitude_ft": [
+        500,
+        1500
+      ],
+      "profile": "טיסה איטית בגובה נמוך מאוד"
+    },
+    "Air Tractor": {
+      "category": "מטוס ריסוס",
+      "speed_knots": [
+        130,
+        160
+      ],
+      "altitude_ft": [
+        50,
+        500
+      ],
+      "profile": "טיסה קיצונית בגובה נמוך מאוד, שינויי כיוון חדים"
+    },
+    "Cessna 172": {
+      "category": "מטוס קל (GA)",
+      "speed_knots": [
+        100,
+        140
+      ],
+      "altitude_ft": [
+        3500,
+        10000
+      ],
+      "profile": "טיסה ישרה ואיטית יחסית"
+    },
+    "AH-64 Apache": {
+      "category": "מסוק תקיפה/תובלה",
+      "speed_knots": [
+        140,
+        160
+      ],
+      "altitude_ft": [
+        50,
+        5000
+      ],
+      "profile": "טיסה טקטית בגובה נמוך מאוד, ניצול תוואי שטח"
+    },
+    "C-130J Hercules": {
+      "category": "מטוס תובלה טקטי",
+      "speed_knots": [
+        280,
+        330
+      ],
+      "altitude_ft": [
+        50,
+        500
+      ],
+      "profile": "חדירה מהירה בגובה נמוך או שיוט בינוני"
+    },
+    "Boeing 737": {
+      "category": "מטוס תובלה בינוני",
+      "speed_knots": 453,
+      "altitude_ft": [
+        0,
+        40000
+      ],
+      "profile": "שיוט ישר בגובה רב"
+    },
+    "Boeing 787": {
+      "category": "מטוס תובלה כבד",
+      "speed_knots": 488,
+      "altitude_ft": [
+        0,
+        42000
+      ],
+      "profile": "שיוט ישר בגובה רב"
+    },
+    "F-16": {
+      "category": "מטוס קרב",
+      "speed_knots": [
+        550,
+        650
+      ],
+      "altitude_ft": [
+        10000,
+        55000
+      ],
+      "profile": "טיסה מהירה בגובה בינוני-גבוה, תמרון אנכי חריג"
+    },
+    "F-22": {
+      "category": "מטוס קרב",
+      "speed_knots": 900,
+      "altitude_ft": [
+        0,
+        65000
+      ],
+      "profile": "מהירות על-קולית בגובה רב מאוד"
+    }
+  }
+}

@@ -1,0 +1,713 @@
+{
+  "version": "1.0",
+  "classification_categories": {
+    "birds": {
+      "description": "Migratory and local birds",
+      "profiles": [
+        {
+          "profile_id": "birds_soaring_daytime",
+          "name": "Soaring Birds - Daytime Migration",
+          "season": {
+            "autumn": "southward migration",
+            "spring": "northward migration"
+          },
+          "time_of_day": "daytime only",
+          "bird_types": [
+            "birds of prey",
+            "storks",
+            "pelicans",
+            "raptors"
+          ],
+          "migration_pattern": "passive migration using thermals and wind currents",
+          "critical_risk_zones_domestic": [
+            "Jordan Valley axis",
+            "Dead Sea",
+            "Beit Shean Valley",
+            "Hula Valley",
+            "Eilat area",
+            "Hefer Valley cliffs",
+            "areas above water reservoirs and fish farms",
+            "Ma'agan Michael",
+            "Mizpe Ramon",
+            "Yoqneam area"
+          ],
+          "flight_characteristics": {
+            "pattern": "unstable zigzag flight",
+            "altitude_behavior": "constant altitude changes - zigzag upward within thermal column, then gliding downward toward next thermal",
+            "horizontal_pattern": "not a straight continuous line, zigzag movement left-right during forward flight (visible when zoomed in, appears nearly straight when zoomed out)",
+            "predictability": "difficult to predict exact altitude due to zigzag behavior",
+            "water_attraction": "strong tendency to descend to water reservoirs"
+          },
+          "altitude_range": {
+            "min_feet": 65,
+            "max_feet": 10000,
+            "unit": "feet"
+          },
+          "speed_range": {
+            "description": "variable, depends on gliding/thermal",
+            "slow_in_thermal": true,
+            "fast_in_glide": true,
+            "min_knots": 25,
+            "max_knots": 80,
+            "unit": "knots"
+          },
+          "collision_risk": {
+            "severity": "sharp encounter",
+            "high_risk_aircraft": [
+              "slow aircraft",
+              "low-flying aircraft",
+              "helicopters",
+              "UAVs",
+              "takeoff/landing altitudes"
+            ]
+          },
+          "operational_notes": [
+            "Birds change altitude constantly (zigzag motion upward in thermal column, then glide downward to next thermal)",
+            "This behavior makes accurate altitude prediction difficult",
+            "Zigzag also manifests in flight path, not just altitude - slight variations visible on screen",
+            "When viewing flight history and real-time flight in zoom-out, appears nearly straight, but zoom-in reveals small zigzag left-right movements"
+          ],
+          "refueling_stops": {
+            "seasons": ["autumn", "spring"],
+            "locations": ["Eilat", "Arava", "Hula Valley"],
+            "behavior": "land at night, take off at dawn searching for food",
+            "note": "Low-flying aircraft will encounter especially high concentrations of birds in these areas"
+          }
+        },
+        {
+          "profile_id": "birds_songbirds_nighttime",
+          "name": "Songbirds - Nighttime Migration",
+          "season": {
+            "autumn": "southward migration",
+            "spring": "northward migration"
+          },
+          "time_of_day": "nighttime only",
+          "bird_types": [
+            "songbirds",
+            "waders",
+            "ducks"
+          ],
+          "migration_pattern": "active nighttime migration",
+          "critical_risk_zones_domestic": [
+            "entire airspace",
+            "especially above coastlines",
+            "desert oases",
+            "Eilat/Arava as refueling stations"
+          ],
+          "flight_characteristics": {
+            "pattern": "relatively stable flight at cruise altitude",
+            "descent_behavior": "significant descent at dawn for rest and feeding",
+            "extreme_altitude_risk": "above 10,000 feet - high risk of encounter with operational aviation at cruise altitude"
+          },
+          "altitude_range": {
+            "min_feet": 65,
+            "max_feet": 19700,
+            "unit": "feet"
+          },
+          "speed_range": {
+            "min_knots": 20,
+            "max_knots": 50,
+            "unit": "knots"
+          },
+          "collision_risk": {
+            "severity": "high at extreme altitudes",
+            "high_risk_altitudes": "above 10,000 feet with operational aviation at cruise altitude"
+          }
+        }
+      ]
+    },
+    "uavs_and_cruise_missiles": {
+      "description": "Unmanned Aerial Vehicles and Cruise Missiles",
+      "summary_ranges": {
+        "speed": {
+          "min_knots": 80,
+          "max_knots": 500,
+          "unit": "knots"
+        },
+        "altitude": {
+          "min_feet": 30,
+          "max_feet": 45000,
+          "unit": "feet"
+        },
+        "radar_cross_section": {
+          "min": "low (composite materials and low altitude)",
+          "max": "low to medium (depends on size)"
+        },
+        "electronic_warfare_susceptibility": {
+          "min": "low (TERCOM, pure INS)",
+          "max": "very high (dependence on civilian GNSS)"
+        }
+      },
+      "profiles": [
+        {
+          "profile_id": "low_and_slow",
+          "name": "Low & Slow Profile",
+          "description": "The slow, cheap saturation target",
+          "typical_systems": ["Shahed-136", "Samad-1"],
+          "behavior": "Flies in relatively straight autonomous path like simple autopilot, at low to medium altitude (few thousand feet)",
+          "weakness": "Very susceptible to Electronic Warfare (EW). Relies on weak civilian GPS signals. Effective jamming causes loss of precise navigation and mission failure. This is our first and most cost-effective line of defense.",
+          "systems": [
+            {
+              "model": "Shahed-136",
+              "operator": ["Iran", "Houthis", "Hezbollah"],
+              "flight_profile": {
+                "type": "Low & Slow",
+                "description": "long-range cruise"
+              },
+              "speed_range": {
+                "min_knots": 90,
+                "max_knots": 130,
+                "unit": "knots"
+              },
+              "altitude_range": {
+                "min_feet": 500,
+                "max_feet": 13000,
+                "unit": "feet"
+              },
+              "radar_cross_section": {
+                "level": "low",
+                "reason": "delta structure, composite materials"
+              },
+              "ew_susceptibility": {
+                "level": "very high",
+                "reason": "depends on civilian GNSS for navigation correction"
+              },
+              "guidance_system": {
+                "primary": "GNSS (civilian GPS/GLONASS)",
+                "secondary": "INS"
+              }
+            }
+          ]
+        },
+        {
+          "profile_id": "terrain_following",
+          "name": "Terrain Following Profile",
+          "description": "The close evasion threat",
+          "typical_systems": ["Quds", "Hoveyzeh"],
+          "behavior": {
+            "terrain_following": "Not a straight line. Missile flies in planned serpentine path with altitude changes and sharp maneuvers, using TERCOM (Terrain Contour Matching) to hide behind ridges and hills",
+            "sea_skimming": "Flies mere meters above water surface"
+          },
+          "danger": "Extreme low profile exploits Earth's curvature. Ground radar detects only at very short range. Systems like Mobin flying at only 33 feet give us only seconds of reaction time.",
+          "systems": [
+            {
+              "model": "Hoveyzeh",
+              "operator": ["Iran"],
+              "flight_profile": {
+                "type": "Sea-skimming",
+                "description": "cruise missile"
+              },
+              "speed_range": {
+                "min_knots": 280,
+                "max_knots": 450,
+                "unit": "knots"
+              },
+              "altitude_range": {
+                "min_feet": 0,
+                "max_feet": 1000,
+                "unit": "feet"
+              },
+              "radar_cross_section": {
+                "level": "low",
+                "reason": "extremely low flight altitude"
+              },
+              "ew_susceptibility": {
+                "level": "low to medium",
+                "reason": "reliance on INS"
+              },
+              "guidance_system": {
+                "primary": "INS (Inertial Navigation System)"
+              }
+            },
+            {
+              "model": "Quds Family",
+              "operator": ["Houthis"],
+              "flight_profile": {
+                "type": "Terrain Following",
+                "description": "cruise missile, follows terrain contours"
+              },
+              "speed_range": {
+                "min_knots": 280,
+                "max_knots": 450,
+                "unit": "knots"
+              },
+              "altitude_range": {
+                "min_feet": 0,
+                "max_feet": 1000,
+                "unit": "feet"
+              },
+              "radar_cross_section": {
+                "level": "low",
+                "reason": "low flight altitude"
+              },
+              "ew_susceptibility": {
+                "level": "low",
+                "reason": "TERCOM relatively resistant to GPS jamming"
+              },
+              "guidance_system": {
+                "primary": "TERCOM (Terrain Contour Matching)"
+              }
+            },
+            {
+              "model": "Mobin",
+              "operator": ["Iran"],
+              "flight_profile": {
+                "type": "Low & Fast",
+                "description": "loitering munition"
+              },
+              "speed_range": {
+                "min_knots": 300,
+                "max_knots": 500,
+                "unit": "knots"
+              },
+              "altitude_range": {
+                "min_feet": 0,
+                "max_feet": 100,
+                "unit": "feet"
+              },
+              "radar_cross_section": {
+                "level": "low",
+                "reason": "extremely low flight altitude"
+              },
+              "ew_susceptibility": {
+                "level": "high",
+                "reason": "depends on GNSS for correction"
+              },
+              "guidance_system": {
+                "primary": "Not specified explicitly",
+                "likely": "INS/GNSS"
+              }
+            }
+          ]
+        },
+        {
+          "profile_id": "high_and_fast",
+          "name": "High & Fast Profile",
+          "description": "High altitude threat",
+          "typical_systems": ["Karrar-1"],
+          "behavior": "Flies in relatively straight path at high altitude, usually at high speed (~486 knots). Can serve for Intelligence, Surveillance, and Reconnaissance (ISR) from high altitude or for attack (UCAV)",
+          "danger": "Usually serves as strategic long-range platform. High altitude requires interception resources capable of reaching it, such as fighter jets.",
+          "weakness": "At high altitude, radar detection is easier compared to ground-hugging threats, allowing longer reaction time to activate longer-range defense systems.",
+          "systems": [
+            {
+              "model": "Karrar-1",
+              "operator": ["Iran"],
+              "flight_profile": {
+                "type": "High & Fast",
+                "description": "UCAV/target drone"
+              },
+              "speed_range": {
+                "min_knots": 350,
+                "max_knots": 500,
+                "unit": "knots"
+              },
+              "altitude_range": {
+                "min_feet": 30000,
+                "max_feet": 45000,
+                "unit": "feet"
+              },
+              "radar_cross_section": {
+                "level": "not specified",
+                "description": "medium-large UAV"
+              },
+              "ew_susceptibility": {
+                "level": "medium",
+                "reason": "varies with GNSS usage"
+              },
+              "guidance_system": {
+                "primary": "Not specified explicitly",
+                "likely": "INS/GNSS"
+              }
+            }
+          ]
+        },
+        {
+          "profile_id": "tactical_isr",
+          "name": "Tactical ISR/UCAV",
+          "description": "Medium-sized tactical reconnaissance or attack UAVs",
+          "systems": [
+            {
+              "model": "Ababil-3",
+              "operator": ["Hezbollah", "Hamas", "Houthis"],
+              "flight_profile": {
+                "type": "ISR/UCAV",
+                "description": "tactical (intelligence or combat)"
+              },
+              "speed_range": {
+                "min_knots": 80,
+                "max_knots": 130,
+                "unit": "knots"
+              },
+              "altitude_range": {
+                "min_feet": 500,
+                "max_feet": 16400,
+                "unit": "feet"
+              },
+              "radar_cross_section": {
+                "level": "not specified",
+                "description": "medium UAV"
+              },
+              "ew_susceptibility": {
+                "level": "high",
+                "reason": "navigation-dependent UAV"
+              },
+              "guidance_system": {
+                "primary": "not specified"
+              }
+            },
+            {
+              "model": "Mohajer-6",
+              "operator": ["Iran", "Iraqi militias"],
+              "flight_profile": {
+                "type": "ISR/UCAV",
+                "description": "intelligence or combat"
+              },
+              "speed_range": {
+                "min_knots": 80,
+                "max_knots": 120,
+                "unit": "knots"
+              },
+              "altitude_range": {
+                "min_feet": 1000,
+                "max_feet": 18000,
+                "unit": "feet"
+              },
+              "radar_cross_section": {
+                "level": "not specified",
+                "description": "medium-large UAV"
+              },
+              "ew_susceptibility": {
+                "level": "high"
+              },
+              "guidance_system": {
+                "primary": "not specified"
+              }
+            },
+            {
+              "model": "Kaman-12",
+              "operator": ["Iran"],
+              "flight_profile": {
+                "type": "ISR",
+                "description": "tactical"
+              },
+              "speed_range": {
+                "min_knots": 80,
+                "max_knots": 120,
+                "unit": "knots"
+              },
+              "altitude_range": {
+                "min_feet": 300,
+                "max_feet": 15000,
+                "unit": "feet"
+              },
+              "radar_cross_section": {
+                "level": "not specified",
+                "description": "large UAV"
+              },
+              "ew_susceptibility": {
+                "level": "high"
+              },
+              "guidance_system": {
+                "primary": "not specified"
+              }
+            },
+            {
+              "model": "Shahed-191",
+              "operator": ["Iran"],
+              "flight_profile": {
+                "type": "UCAV"
+              },
+              "speed_range": {
+                "min_knots": 150,
+                "max_knots": 220,
+                "unit": "knots"
+              },
+              "altitude_range": {
+                "min_feet": 1000,
+                "max_feet": 25000,
+                "unit": "feet"
+              },
+              "radar_cross_section": {
+                "level": "medium",
+                "description": "flying wing UAV derived from RQ-170"
+              },
+              "ew_susceptibility": {
+                "level": "medium",
+                "reason": "depends on GNSS usage"
+              },
+              "guidance_system": {
+                "primary": "Not specified explicitly",
+                "likely": "INS/GNSS"
+              }
+            },
+            {
+              "model": "Ababil-2",
+              "operator": ["Hezbollah", "Hamas", "Houthis"],
+              "flight_profile": {
+                "type": "ISR/loitering munition"
+              },
+              "speed_range": {
+                "min_knots": 150,
+                "max_knots": 230,
+                "unit": "knots"
+              },
+              "altitude_range": {
+                "min_feet": 1000,
+                "max_feet": 9900,
+                "unit": "feet"
+              },
+              "radar_cross_section": {
+                "level": "not specified",
+                "description": "relatively small platform"
+              },
+              "ew_susceptibility": {
+                "level": "high"
+              },
+              "guidance_system": {
+                "primary": "not specified explicitly"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "aircraft": {
+      "description": "Manned aircraft - civilian and military",
+      "summary_ranges": {
+        "speed": {
+          "min_knots": 85,
+          "max_knots": 700,
+          "unit": "knots",
+          "description": "variable speed (characterized by slow flight at low altitude vs supersonic cruise at high altitude)"
+        },
+        "altitude": {
+          "min_feet": 50,
+          "max_feet": 55000,
+          "unit": "feet",
+          "description": "multi-layered (helicopters and crop dusters 'ground-hugging' while transport and fighters exploit high altitude)"
+        }
+      },
+      "categories": [
+        {
+          "category_id": "light_helicopter",
+          "name": "Light Helicopter",
+          "representative_model": "Robinson R22 (example)",
+          "role": "general aviation/reconnaissance",
+          "cruise_speed": {
+            "min_knots": 60,
+            "max_knots": 100,
+            "unit": "knots"
+          },
+          "optimal_cruise_altitude": {
+            "min_feet": 500,
+            "max_feet": 1500,
+            "unit": "feet"
+          },
+          "flight_profile_characteristics": "slow flight at very low altitude, sensitive to wind"
+        },
+        {
+          "category_id": "crop_duster",
+          "name": "Crop Duster Aircraft",
+          "representative_model": "Air Tractor (example)",
+          "role": "agriculture",
+          "cruise_speed": {
+            "min_knots": 130,
+            "max_knots": 160,
+            "unit": "knots"
+          },
+          "optimal_cruise_altitude": {
+            "min_feet": 50,
+            "max_feet": 500,
+            "unit": "feet"
+          },
+          "flight_profile_characteristics": "extreme low-altitude flight with sharp direction changes"
+        },
+        {
+          "category_id": "light_aircraft_ga",
+          "name": "Light Aircraft (GA - General Aviation)",
+          "representative_model": "Cessna 172",
+          "role": "training/transport",
+          "cruise_speed": {
+            "min_knots": 80,
+            "max_knots": 140,
+            "unit": "knots"
+          },
+          "optimal_cruise_altitude": {
+            "min_feet": 3500,
+            "max_feet": 10000,
+            "unit": "feet"
+          },
+          "flight_profile_characteristics": "straight flight, relatively slow, subject to IFR/VFR vertical separation rules"
+        },
+        {
+          "category_id": "attack_transport_helicopter",
+          "name": "Attack/Transport Helicopter",
+          "representative_model": "AH-64 Apache",
+          "role": "tactical support/insertion",
+          "cruise_speed": {
+            "min_knots": 140,
+            "max_knots": 160,
+            "unit": "knots"
+          },
+          "optimal_cruise_altitude": {
+            "min_feet": 50,
+            "max_feet": 5000,
+            "unit": "feet"
+          },
+          "flight_profile_characteristics": "tactical flight at very low altitude, exploiting terrain contours"
+        },
+        {
+          "category_id": "tactical_transport",
+          "name": "Tactical Transport Aircraft",
+          "representative_model": "C-130J Hercules",
+          "role": "special operations/parachute drops",
+          "cruise_speed": {
+            "min_knots": 280,
+            "max_knots": 330,
+            "unit": "knots"
+          },
+          "optimal_cruise_altitude": {
+            "min_feet": 50,
+            "max_feet": 500,
+            "unit": "feet"
+          },
+          "flight_profile_characteristics": "rapid low-altitude penetration or medium cruise"
+        },
+        {
+          "category_id": "medium_transport",
+          "name": "Medium Transport Aircraft",
+          "representative_model": "Boeing 737",
+          "role": "cargo/passengers",
+          "cruise_speed": {
+            "min_knots": 200,
+            "max_knots": 480,
+            "unit": "knots"
+          },
+          "optimal_cruise_altitude": {
+            "min_feet": 200,
+            "max_feet": 40000,
+            "unit": "feet"
+          },
+          "flight_profile_characteristics": "straight cruise at high altitude, efficient and stable profile"
+        },
+        {
+          "category_id": "heavy_transport",
+          "name": "Heavy Transport Aircraft",
+          "representative_model": "Boeing 787",
+          "role": "long-range passengers/cargo",
+          "cruise_speed": {
+            "min_knots": 200,
+            "max_knots": 480,
+            "unit": "knots"
+          },
+          "optimal_cruise_altitude": {
+            "min_feet": 200,
+            "max_feet": 45000,
+            "unit": "feet"
+          },
+          "flight_profile_characteristics": "straight cruise at high altitude, efficient and stable profile"
+        },
+        {
+          "category_id": "fighter_aircraft",
+          "name": "Fighter Aircraft",
+          "representative_model": "F-16 Fighting Falcon (example)",
+          "role": "air superiority/strike",
+          "cruise_speed": {
+            "min_knots": 300,
+            "max_knots": 700,
+            "unit": "knots"
+          },
+          "optimal_cruise_altitude": {
+            "min_feet": 200,
+            "max_feet": 55000,
+            "unit": "feet"
+          },
+          "flight_profile_characteristics": "very high-speed flight at medium-high altitude, exceptional vertical maneuverability capability"
+        }
+      ]
+    }
+  },
+  "classification_guidelines": {
+    "primary_discriminators": [
+      {
+        "parameter": "time_of_day",
+        "rules": [
+          "Nighttime flight at 65-19,700 feet and 20-50 knots → likely nighttime migrating birds",
+          "Daytime flight with zigzag pattern and altitude changes → likely soaring birds"
+        ]
+      },
+      {
+        "parameter": "altitude",
+        "rules": [
+          "0-100 feet → crop duster, attack helicopter, terrain-following missile, or low-flying UAV",
+          "500-13,000 feet with 90-130 knots → potential Shahed-136 or similar Low & Slow UAV",
+          "30,000-45,000 feet with high speed → fighter aircraft or High & Fast UAV",
+          "Above 10,000 feet at night with 20-50 knots → nighttime migrating birds with collision risk"
+        ]
+      },
+      {
+        "parameter": "speed",
+        "rules": [
+          "20-80 knots → birds or very light aircraft",
+          "80-160 knots → light aircraft, helicopters, or slow UAVs",
+          "280-450 knots → cruise missiles or tactical transport",
+          "Above 500 knots → fighter aircraft or fast UAVs"
+        ]
+      },
+      {
+        "parameter": "flight_pattern",
+        "rules": [
+          "Zigzag vertical and horizontal → soaring birds in thermals",
+          "Straight and stable → cruise missiles, transport aircraft, or ISR UAVs",
+          "Serpentine with terrain following → Quds-type terrain-following missile",
+          "Sharp direction changes at very low altitude → crop duster or attack helicopter"
+        ]
+      },
+      {
+        "parameter": "location_context",
+        "rules": [
+          "Over water reservoirs or fish farms → likely birds (strong attraction)",
+          "Jordan Valley, Dead Sea, Beit Shean during migration season → high probability of soaring birds",
+          "Coastlines at night → nighttime migrating birds",
+          "Strategic approach corridors → potential hostile UAVs or cruise missiles"
+        ]
+      }
+    ],
+    "secondary_indicators": [
+      {
+        "indicator": "altitude_stability",
+        "interpretation": "Unstable/zigzag altitude changes suggest soaring birds; stable altitude suggests mechanical flight"
+      },
+      {
+        "indicator": "speed_consistency",
+        "interpretation": "Variable speed (slow in thermals, fast in glides) suggests birds; consistent speed suggests powered flight"
+      },
+      {
+        "indicator": "heading_changes",
+        "interpretation": "Frequent small heading changes suggest birds; straight track suggests missile or cruise flight"
+      },
+      {
+        "indicator": "seasonal_context",
+        "interpretation": "Spring/autumn increases bird probability; consider migration corridors"
+      }
+    ]
+  },
+  "special_notes": {
+    "bird_behavior": [
+      "Soaring birds descend at dusk and night (refueling)",
+      "Nighttime migrants descend significantly at dawn for rest and feeding",
+      "High concentrations near water bodies and migration corridors",
+      "Predictability is low due to zigzag patterns"
+    ],
+    "uav_vulnerabilities": [
+      "Low & Slow profiles highly susceptible to GPS jamming",
+      "Terrain-following profiles difficult to detect on ground radar",
+      "High & Fast profiles easier to detect but require long-range interceptors"
+    ],
+    "collision_risks": [
+      "Birds pose highest risk to helicopters, UAVs, and aircraft at takeoff/landing",
+      "Nighttime bird migration at 10,000+ feet risks encounter with operational aviation",
+      "Terrain-following missiles provide only seconds of warning"
+    ]
+  }
+}
